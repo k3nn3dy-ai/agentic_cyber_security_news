@@ -1,0 +1,45 @@
+editorial_review:
+  description: >
+    Perform a comprehensive editorial review of research_report.md, evaluating the following aspects:
+    
+    1. Accuracy & Verification:
+       - Verify all facts against the web_researcher's gathered information
+       - Check that no unsupported claims or speculations are present
+       - Ensure all sources are properly cited
+    
+    2. Structure & Organization:
+       - Evaluate logical flow and coherence of the narrative
+       - Check section organization and hierarchy
+       - Verify appropriate use of headings and subheadings
+    
+    3. Content Quality:
+       - Assess completeness of coverage
+       - Check for redundancy or unnecessary information
+       - Verify technical accuracy of cybersecurity terminology
+       - Ensure appropriate context is provided for technical concepts
+    
+    4. Writing Style:
+       - Check for clarity and readability
+       - Verify consistent tone and voice
+       - Ensure appropriate level of technical detail for target audience
+    
+    5. Formatting:
+       - Verify proper markdown formatting
+       - Check consistency in formatting conventions
+       - Ensure proper presentation of code blocks, quotes, and lists
+
+    If the report is not of an acceptable standard, provide a list of specific suggestions for improvement.
+
+  expected_output: >
+    Formatted as markdown without '```'
+
+    Is the report of an acceptable standard? True or False
+    If the report is not of an acceptable standard, provide a list of specific suggestions for improvement.
+
+    structured output: 
+
+    is_acceptable: True or False
+    editor_feedback: list of specific suggestions for improvement
+     
+
+  agent: newsroom_editor

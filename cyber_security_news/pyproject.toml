@@ -1,0 +1,19 @@
+[project]
+name = "cyber_security_news"
+version = "0.1.0"
+description = "cyber_security_news using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "colorama>=0.4.6",
+    "crewai[tools]>=0.86.0,<1.0.0",
+    "matplotlib>=3.10.0",
+]
+
+[project.scripts]
+kickoff = "cyber_security_news.main:kickoff"
+plot = "cyber_security_news.main:plot"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

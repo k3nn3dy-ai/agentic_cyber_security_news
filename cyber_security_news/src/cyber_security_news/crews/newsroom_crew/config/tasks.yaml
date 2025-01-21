@@ -1,0 +1,43 @@
+research_report:
+  description: >
+    Review all gathered information from {research_results} and previous tasks [search_tasks.md, filter_task.md, summarise_task.md, and trend_analysis_task.md]
+    and generate a comprehensive report that synthesizes the cybersecurity news and trends for the 7 days leading up to {date}. 
+    Ensure all sources are properly credited and information is accurately represented from the collected data.
+
+    if the editor provides feedback, ensure the report is updated to reflect the feedback.
+    {editors_feedback}
+  expected_output: >
+    Formatted as markdown without ```
+    A detailed report with key findings, trends, and insights for the cybersecurity community.
+   
+      # Cybersecurity Research Report for the week ending {date}
+      ## Executive Summary
+      
+      write a executive summary of the report and its contents.
+
+      ## Methodology
+      
+      Briefly explain the process and sources used to gather and analyze the cybersecurity news stories.
+
+      ## Top News Stories
+      an overview of this week's top news stories
+
+      ## This weeks summary overview
+      this section should contain the entire content of [summarise_task.md], do not summarise or change the content.
+
+      ## Filtered and High Ranked Stories
+      A detailed list of all the 'High' ranked stories from [filter_task.md]
+
+      ## Emerging Trends and Patterns
+      this section should contain the entire content of [trend_analysis_task.md], do not summarise or change the content.
+
+      ## Recommendations
+      
+      Provide specific recommendations or best practices for mitigating risks and addressing the identified threats and trends.
+
+      ## Source Links
+      
+      list all the source full path URLs from these files: [search_task.md]
+
+      
+  agent: report_writer
