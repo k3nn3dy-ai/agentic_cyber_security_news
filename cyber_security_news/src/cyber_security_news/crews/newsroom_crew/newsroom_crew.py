@@ -16,8 +16,11 @@ class NewsroomCrew():
 	def report_writer(self) -> Agent:
 		return Agent(
 			config=self.agents_config['report_writer'],
-			tools=[self.file_reader_tool, self.website_search_tool],
-			verbose=True
+			tools=[self.file_reader_tool],
+			verbose=True,
+			respect_context_window=True,
+			max_iter=1,
+			max_rpm=50,
 		)
 		
 	@task

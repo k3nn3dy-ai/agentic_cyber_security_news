@@ -59,7 +59,6 @@ class WebResearchCrew():
 		return Task(
 			config=self.tasks_config['search_task'],
 			output_file='search_task.md',
-			output_pydantic=WebResearchOutput
 		)
 
 	@task
