@@ -3,6 +3,14 @@ from crewai_tools import WebsiteSearchTool, Tool
 from crewai.project import CrewBase, agent, crew, task
 from datetime import datetime
 from crewai_tools import FileReadTool
+from pydantic import BaseModel
+
+class WebResearchOutput(BaseModel):
+    search_task: str = ""
+    filter_task: str = ""
+    summarise_task: str = ""
+    trend_analysis_task: str = ""
+    weekly_overview_task: str = ""
 
 
 @CrewBase
@@ -43,43 +51,43 @@ class WebResearchCrew():
 	def web_researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['web_researcher'],
-			tools=[self.news_sources],
-			verbose=True
+			tools=[self.news_sources]
 		)
 
 	@task
 	def search_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['search_task'],
-			output_file=f"search_tasks.md",
-			)
+			output_file='search_task.md',
+			output_pydantic=WebResearchOutput
+		)
 
 	@task
 	def filter_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['filter_task'],
-			output_file=f'filter_task.md'
+			output_file='filter_task.md'
 		)
 
 	@task
 	def summarise_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['summarise_task'],
-			output_file=f'summarise_task.md'
+			output_file='summarise_task.md'
 		)
 
 	@task
 	def trend_analysis_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['trend_analysis_task'],
-			output_file=f'trend_analysis_task.md'
+			output_file='trend_analysis_task.md'
 		)
 	
 	@task
 	def weekly_overview_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['weekly_overview_task'],
-			output_file=f'weekly_news_overview.md'
+			output_pydantic=WebResearchOutput
 		)
 	
 	@crew
@@ -91,5 +99,5 @@ class WebResearchCrew():
 			tasks=self.tasks,
 			process=Process.sequential,
 			verbose=True,
-			output_log_file='csn.log',
+			output_log_file='web_research.log',
 		)

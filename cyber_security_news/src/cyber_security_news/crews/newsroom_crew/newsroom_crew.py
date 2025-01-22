@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import FileReadTool
+from crewai_tools import FileReadTool, WebsiteSearchTool
 
 @CrewBase
 class NewsroomCrew():
@@ -10,12 +10,13 @@ class NewsroomCrew():
 	tasks_config = 'config/tasks.yaml'
 
 	file_reader_tool = FileReadTool()
+	website_search_tool = WebsiteSearchTool()
 
 	@agent
 	def report_writer(self) -> Agent:
 		return Agent(
 			config=self.agents_config['report_writer'],
-			tools=[self.file_reader_tool],
+			tools=[self.file_reader_tool, self.website_search_tool],
 			verbose=True
 		)
 		
@@ -35,4 +36,5 @@ class NewsroomCrew():
 			tasks=self.tasks, # Automatically created by the @task decorator
 			process=Process.sequential,
 			verbose=True,
+			output_log_file='newsroom_crew.log',
 		)

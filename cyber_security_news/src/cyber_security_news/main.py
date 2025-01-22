@@ -12,11 +12,11 @@ def get_current_date():
 
 class ContentTrigger(BaseModel):
     date: str = get_current_date()
-    research_results: str = ""
-    editors_feedback: str = ""
     newsroom_report: str = ""
     retrycount: int = 0
     is_acceptable: bool = False
+    editors_feedback: str = ""
+    research_results: str = ""
 
 class CyberSecurityNewsFlow(Flow[ContentTrigger]):
 
@@ -42,11 +42,12 @@ class CyberSecurityNewsFlow(Flow[ContentTrigger]):
         result = (
             NewsroomCrew()
             .crew()
-            .kickoff(inputs={"date": self.state.date, "research_results": self.state.research_results, "editors_feedback": self.state.editors_feedback})
+            .kickoff(inputs={"date": self.state.date, "research_results": self.state.research_results, "editors_feedback": self.state.editors_feedback, "newsroom_report": self.state.newsroom_report})
         )
         print("Newsroom review completed!!!", result.raw)
         self.state.newsroom_report = result.raw
         self.state.retrycount += 1
+        
 
     @listen(newsroom_review)
     def editor_review(self):

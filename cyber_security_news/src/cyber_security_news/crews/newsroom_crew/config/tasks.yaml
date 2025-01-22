@@ -4,7 +4,7 @@ research_report:
     and generate a comprehensive report that synthesizes the cybersecurity news and trends for the 7 days leading up to {date}. 
     Ensure all sources are properly credited and information is accurately represented from the collected data.
 
-    if the editor provides feedback, ensure the report is updated to reflect the feedback.
+    if the editor provides feedback, to an existing {newsroom_report}, ensure the report is updated and amended to reflect the feedback.
     {editors_feedback}
   expected_output: >
     Formatted as markdown without ```

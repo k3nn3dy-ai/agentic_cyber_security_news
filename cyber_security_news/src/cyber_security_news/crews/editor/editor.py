@@ -38,4 +38,5 @@ class Editor():
 			tasks=self.tasks,
 			process=Process.sequential,
 			verbose=True,
+			output_log_file='editor.log',
 		)
