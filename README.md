@@ -1,4 +1,4 @@
-# 🛡️ AI-Powered Cybersecurity News Analyzer
+# 🛡️ AI-Powered Cybersecurity News and CVE Analyser
 
 ![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
