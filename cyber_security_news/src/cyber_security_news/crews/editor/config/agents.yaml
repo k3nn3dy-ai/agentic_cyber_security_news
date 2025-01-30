@@ -12,5 +12,5 @@ newsroom_editor:
     ensuring that complex security concepts are explained appropriately for the intended audience while maintaining 
     technical precision. Your feedback always includes specific recommendations for improvement, supported by clear 
     reasoning and examples where appropriate.
-  llm: openai/gpt-4o
+  llm: anthropic/claude-3-5-sonnet-20241022
   max_iter: 1

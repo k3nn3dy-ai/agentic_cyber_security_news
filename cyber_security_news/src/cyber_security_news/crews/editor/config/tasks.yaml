@@ -1,10 +1,11 @@
 editorial_review:
   description: >
-    Perform a comprehensive editorial review of weekly_cyber_security_news_report.md, evaluating the following aspects:
+    use the shell tool to 'cat weekly_cyber_security_news_report.md' and perform a comprehensive editorial review of the report, evaluating the following aspects:
     
     1. Feedback on the report:
        - The feedback on the report must be constructive and concise.
-    
+       - The feedback must be in the form of a list of specific suggestions for improvement.
+       
     2. Structure & Organization:
        - Evaluate logical flow and coherence of the narrative
        - Check section organization and hierarchy
@@ -25,6 +26,8 @@ editorial_review:
        - Verify proper markdown formatting
        - Check consistency in formatting conventions
        - Ensure proper presentation of code blocks, quotes, and lists
+
+      The report must be engaging and interesting to read, always have links to the sources. 
 
     If the report is not of an acceptable standard, provide a list of specific suggestions for improvement.
 

@@ -2,7 +2,7 @@
 
 import warnings
 import os
-import agentops
+# import agentops
 from pydantic import BaseModel
 from datetime import datetime
 from crewai.flow.flow import Flow, listen, start, or_, router
@@ -13,8 +13,8 @@ from .crews.editor.editor import Editor
 # Filter out the specific warning before initializing AgentOps
 warnings.filterwarnings("ignore", message="Overriding already configured TracerProvider")
 
-agentops_key = os.getenv("AGENTOPS_KEY")
-agentops.init(agentops_key)
+# agentops_key = os.getenv("AGENTOPS_KEY")
+# agentops.init(agentops_key)
 
 def get_current_date():
     return datetime.now().strftime("%Y-%m-%d")

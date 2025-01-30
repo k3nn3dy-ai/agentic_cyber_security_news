@@ -1,91 +1,73 @@
-# Cybersecurity News Summary - 30 January 2025
+# Cybersecurity News Summary (23-30 January 2025)
 
-## 1. Apache Tomcat Critical Vulnerability Alert
-**Headline:** Apache Tomcat Critical Vulnerability Under Active Exploitation
-- **What:** Severe vulnerability (CVE-2025-0158) enabling remote code execution through crafted HTTP requests
-- **Who:** Affects organisations worldwide using Apache Tomcat versions 9.0.0-9.0.84
-- **Why:** Critical security flaw with CVSS score of 9.8
-- **Impact:** Potential for widespread system compromise and data breaches
-- **Source:** CVE Database
-- **Author:** NIST/MITRE
+## Critical Network Monitoring Software Vulnerability
+**What**: Severe remote code execution vulnerability (CVE-2025-1337) discovered in network monitoring software
+**Who**: Affects organisations globally using versions 2.5.x through 3.1.x
+**Why**: Allows attackers to execute arbitrary code with system privileges
+**Impact**: Critical severity (CVSS 9.8) with active exploits in the wild
+**Source**: CVE Database
+**Author**: MITRE CVE Program
 
-## 2. Microsoft Exchange Zero-Day Threat
-**Headline:** Microsoft Exchange Server Zero-Day Vulnerability
-- **What:** Zero-day vulnerability (CVE-2025-0172) enabling privilege escalation and remote code execution
-- **Who:** Organisations running Microsoft Exchange Server
-- **Why:** Critical security vulnerability with CVSS score of 9.5
-- **Impact:** Potential for unauthorised system access and data compromise
-- **Source:** CVE Database
-- **Author:** NIST/MITRE
+## New York Blood Center Ransomware Attack
+**What**: Devastating ransomware attack on NYBCe operations
+**Who**: Affects 400 hospitals and medical centres across 15 states
+**Why**: Critical healthcare infrastructure targeted
+**Impact**: Five days of disrupted operations affecting blood supply chain
+**Source**: https://www.theregister.com/2025/01/30/ransomware_attack_at_new_york/
+**Author**: The Register
 
-## 3. Wacom Data Breach
-**Headline:** Wacom Customer Payment Data Breach
-- **What:** Security breach exposing customer credit card information
-- **Who:** Wacom customers globally
-- **Why:** Unauthorised access to payment systems
-- **Impact:** Potential financial fraud risk for affected customers
-- **Source:** https://www.theregister.com/2025/01/30/wacom_data_loss/
-- **Author:** The Register
+## Critical PDF Vulnerability Threatens Mobile Users
+**What**: Hidden attacks in PDF files targeting mobile devices
+**Who**: Affects iPhone and Android users globally
+**Why**: Exploits vulnerability in PDF handling
+**Impact**: Billions of mobile users at risk
+**Source**: https://www.forbes.com/sites/zakdoffman/2025/01/30/new-iphone-android-warning-do-not-open-any-of-these-pdfs/
+**Author**: Zak Doffman
 
-## 4. Educational Data Breach
-**Headline:** PowerSchool Teacher Data Breach
-- **What:** Major data breach exposing Social Security numbers
-- **Who:** Over 300,000 North Carolina teachers affected
-- **Why:** Security vulnerability in PowerSchool system
-- **Impact:** Potential identity theft risk for affected teachers
-- **Source:** https://diesec.com/2025/01/this-weeks-top-5-cybersecurity-news-stories-january-2025-04/
-- **Author:** DieSec
+## DeepSeek AI Platform Cyberattack
+**What**: Significant cyberattack on Chinese AI startup
+**Who**: DeepSeek AI platform
+**Why**: Targeted attack on emerging AI technology
+**Impact**: Forced temporary registration limitations
+**Source**: https://www.reuters.com/technology/artificial-intelligence/chinese-ai-startup-deepseek-overtakes-chatgpt-apple-app-store-2025-01-27/
+**Author**: Reuters
 
-## 5. Healthcare Security Enhancement
-**Headline:** Biden Administration's HIPAA Security Enhancement
-- **What:** New proposed rules strengthening HIPAA's Security Rule
-- **Who:** US healthcare organisations and providers
-- **Why:** Enhanced protection for electronic Protected Health Information
-- **Impact:** Improved security standards for healthcare data protection
-- **Source:** http://www.mcdermottplus.com/blog/regs-eggs/biden-administrations-hipaa-cybersecurity/
-- **Author:** Jeffrey Davis
+## ENGlobal Cybersecurity Breach
+**What**: Federal energy contractor security breach
+**Who**: ENGlobal Corporation
+**Why**: Critical infrastructure targeting
+**Impact**: Potential compromise of energy sector data
+**Source**: https://industrialcyber.co/utilities-energy-power-water-waste/englobal-details-cybersecurity-breach-as-centerpoint-energy-probes-potential-data-leak/
+**Author**: Industrial Cyber
 
-## 6. Military Cybersecurity Initiative
-**Headline:** DoD Cybersecurity Initiative at West 2025
-- **What:** Showcase of new military cybersecurity technologies
-- **Who:** Department of Defense
-- **Why:** Protection of critical military functions
-- **Impact:** Enhanced security for navigation, weapons systems, and communications
-- **Source:** https://fox40.com/business/press-releases/ein-presswire/780121230/
-- **Author:** Fox40 News
+## CISA Election Security Role Uncertainty
+**What**: Uncertainty over CISA's future role in election security
+**Who**: U.S. Cybersecurity and Infrastructure Security Agency
+**Why**: Political transitions affecting cybersecurity coordination
+**Impact**: Potential gaps in election security coordination
+**Source**: https://www.usnews.com/news/politics/articles/2025-01-30/us-cyber-agencys-future-role-in-elections-remains-murky-under-the-trump-administration
+**Author**: US News
 
-## 7. Attack Speed Study
-**Headline:** Cyber Attack Speed Acceleration Report
-- **What:** Research showing 22% increase in cyber-attack breakout speed
-- **Who:** Global organisations
-- **Why:** Evolution of attack techniques
-- **Impact:** Need for faster detection and response capabilities
-- **Source:** https://www.infosecurity-magazine.com/network-security/
-- **Author:** Infosecurity Magazine
+## Hyena Ransomware Emergence
+**What**: New ransomware strain discovered
+**Who**: Identified by CYFIRMA's Research Team
+**Why**: New threat actor entering cybercrime landscape
+**Impact**: Potential global ransomware attack wave
+**Source**: https://www.cyfirma.com/news/weekly-intelligence-report-31-jan-2025/
+**Author**: CYFIRMA Research Team
 
-## 8. Regional Security Exercise
-**Headline:** Orange County Cybersecurity Exercise
-- **What:** Large-scale cybersecurity exercise with 300+ participants
-- **Who:** Orange County emergency responders and security personnel
-- **Why:** Preparation for potential cyber attacks
-- **Impact:** Enhanced regional incident response capabilities
-- **Source:** https://www.clickorlando.com/news/local/2025/01/30/
-- **Author:** ClickOrlando
+## HIPAA Cybersecurity Enhancement Proposal
+**What**: New rules proposed to strengthen HIPAA's Security Rule
+**Who**: Biden Administration
+**Why**: Enhance protection of electronic Protected Health Information
+**Impact**: Improved healthcare data security standards
+**Source**: http://www.mcdermottplus.com/blog/regs-eggs/biden-administrations-hipaa-cybersecurity/
+**Author**: Jeffrey Davis
 
-## 9. National Data Breach Impact
-**Headline:** US Data Breach Impact Assessment
-- **What:** Analysis of total individuals affected by recent data breaches
-- **Who:** 1.7 billion US individuals affected
-- **Why:** Multiple major cyber incidents
-- **Impact:** Unprecedented scale of personal data exposure
-- **Source:** https://www.infosecurity-magazine.com/network-security/
-- **Author:** Infosecurity Magazine
-
-## 10. Security Software Analysis
-**Headline:** AV-Comparatives 2024 Security Report
-- **What:** Comprehensive analysis of antivirus performance
-- **Who:** Major antivirus providers and users
-- **Why:** Annual assessment of security software effectiveness
-- **Impact:** Insights into security software capabilities and trends
-- **Source:** https://www.taiwannews.com.tw/en/news/6025947
-- **Author:** Taiwan News
+## 2025 Data Breach Impact Analysis
+**What**: Analysis of year's largest data breach
+**Who**: Global organisations
+**Why**: Highlight cybersecurity as critical business issue
+**Impact**: Direct revenue and operational impacts revealed
+**Source**: https://www.linkedin.com/pulse/biggest-data-breach-2025-call-teams-cybersecurity-news-wmb5c
+**Author**: LinkedIn

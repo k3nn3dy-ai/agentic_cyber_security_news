@@ -1,49 +1,47 @@
-# Cybersecurity News Roundup (23-30 January 2025)
+# Cybersecurity News Update (23-30 January 2025)
 
-## Critical Vulnerabilities & Exploits
+## Major Incidents & Breaches
 
-### Apache Tomcat Critical Vulnerability Under Active Exploitation
-A critical vulnerability (CVE-2025-0158) has been discovered in Apache Tomcat versions 9.0.0 through 9.0.84, allowing remote code execution through crafted HTTP requests. The vulnerability has a CVSS score of 9.8 and is currently being exploited in the wild.
+### New York Blood Center Hit by Ransomware Attack
+**Source:** [The Register](https://www.theregister.com/2025/01/30/ransomware_attack_at_new_york/)
+A critical ransomware attack has impacted New York Blood Center Enterprises (NYBCe), affecting operations for five days. The incident has implications for 400 hospitals and medical centres across 15 states that rely on their products and services.
 
-### Microsoft Exchange Server Zero-Day Alert
-A new zero-day vulnerability (CVE-2025-0172) in Microsoft Exchange Server has been identified, enabling privilege escalation and remote code execution. The vulnerability is under active exploitation with a CVSS score of 9.5.
+### DeepSeek AI Platform Suffers Cyberattack
+**Source:** [Reuters](https://www.reuters.com/technology/artificial-intelligence/chinese-ai-startup-deepseek-overtakes-chatgpt-apple-app-store-2025-01-27/)
+Chinese AI startup DeepSeek has been forced to temporarily limit new registrations following a significant cyberattack. The incident occurred as the platform was experiencing increased user adoption and competing with ChatGPT in the AI space.
 
-## Data Breaches & Incidents
+### ENGlobal Cybersecurity Breach Disclosed
+**Source:** [Industrial Cyber](https://industrialcyber.co/utilities-energy-power-water-waste/englobal-details-cybersecurity-breach-as-centerpoint-energy-probes-potential-data-leak/)
+Federal energy contractor ENGlobal Corporation has filed additional details with the SEC regarding a cybersecurity breach, while CenterPoint Energy investigates a potential data leak.
 
-### Wacom Data Breach Affects Customer Payment Information
-**Source**: [The Register](https://www.theregister.com/2025/01/30/wacom_data_loss/)
-Graphics tablet manufacturer Wacom has confirmed a data breach potentially exposing customer credit card information. The company is currently investigating the extent of the compromise and has begun notifying affected customers.
+## Vulnerabilities & Threats
 
-### PowerSchool Data Breach Exposes Teacher Information
-**Source**: [DieSec](https://diesec.com/2025/01/this-weeks-top-5-cybersecurity-news-stories-january-2025-04/)
-A significant data breach at PowerSchool has exposed the Social Security numbers of more than 300,000 North Carolina teachers, marking it as a major statewide security incident.
+### Critical PDF Vulnerability Threatens Mobile Users
+**Source:** [Forbes](https://www.forbes.com/sites/zakdoffman/2025/01/30/new-iphone-android-warning-do-not-open-any-of-these-pdfs/)
+A new warning has been issued for iPhone and Android users regarding dangerous hidden attacks in PDF files. Users are advised to exercise extreme caution when opening PDF documents from unknown sources.
 
-## Government & Policy
+### Critical Network Monitoring Software Vulnerability
+**CVE ID:** CVE-2025-1337
+A critical remote code execution vulnerability has been discovered affecting network monitoring software versions 2.5.x through 3.1.x. Active exploits have been observed in the wild, but a patch is available.
 
-### Biden Administration's HIPAA Cybersecurity Enhancement
-**Source**: [McDermott Plus](http://www.mcdermottplus.com/blog/regs-eggs/biden-administrations-hipaa-cybersecurity/)
-The Biden Administration has proposed new rules to strengthen HIPAA's Security Rule, specifically targeting enhanced cybersecurity measures for electronic Protected Health Information (ePHI).
+## Policy & Regulatory Updates
 
-### Department of Defense Cybersecurity Initiative
-**Source**: [Fox40](https://fox40.com/business/press-releases/ein-presswire/780121230/displaying-the-technology-that-keeps-the-dod-cybersecure-at-west-2025/)
-The DoD is showcasing new cybersecurity technologies at West 2025, focusing on protecting critical military functions including navigation, weapons systems, communication, and logistics from cyber attacks.
+### CISA's Election Security Role Under Scrutiny
+**Source:** [US News](https://www.usnews.com/news/politics/articles/2025-01-30/us-cyber-agencys-future-role-in-elections-remains-murky-under-the-trump-administration)
+The future role of the U.S. Cybersecurity and Infrastructure Security Agency (CISA) in election security remains uncertain, raising concerns about the coordination of election cybersecurity efforts.
 
-## Industry Developments
+### HIPAA Cybersecurity Enhancement Proposal
+**Source:** [McDermott Plus](http://www.mcdermottplus.com/blog/regs-eggs/biden-administrations-hipaa-cybersecurity/)
+The Biden Administration has proposed new rules to strengthen HIPAA's Security Rule, focusing on enhanced cybersecurity measures for electronic Protected Health Information (ePHI).
 
-### Cyber Attack Speed Increasing
-**Source**: [Infosecurity Magazine](https://www.infosecurity-magazine.com/network-security/)
-New research indicates a 22% acceleration in cyber-attack breakout time, highlighting the need for faster detection and response capabilities.
+## Emerging Threats
 
-### Orange County Cybersecurity Exercise
-**Source**: [ClickOrlando](https://www.clickorlando.com/news/local/2025/01/30/orange-county-holds-large-scale-exercise-to-prep-for-potential-attack/)
-Orange County conducted a large-scale cybersecurity exercise involving over 300 participants, focusing on response preparedness for potential cyber attacks on critical infrastructure.
+### Hyena Ransomware Discovered
+**Source:** [CYFIRMA](https://www.cyfirma.com/news/weekly-intelligence-report-31-jan-2025/)
+CYFIRMA's Research and Advisory Team has identified a new ransomware strain called Hyena while monitoring underground forums, representing a new threat to organisations globally.
 
-## Security Research & Reports
+## Notable Industry Changes
 
-### AV-Comparatives 2024 Summary Report Released
-**Source**: [Taiwan News](https://www.taiwannews.com.tw/en/news/6025947)
-AV-Comparatives has published their comprehensive 2024 cybersecurity analysis, providing insights into antivirus performance and security trends over the past year.
-
-### US Data Breach Impact Assessment
-**Source**: [Infosecurity Magazine](https://www.infosecurity-magazine.com/network-security/)
-Recent mega data breaches have pushed the total number of affected US individuals to 1.7 billion, highlighting the increasing scale of cyber incidents.
+### Data Breach Impact Analysis
+**Source:** [LinkedIn](https://www.linkedin.com/pulse/biggest-data-breach-2025-call-teams-cybersecurity-news-wmb5c)
+A comprehensive analysis of 2025's largest data breach highlights the need for organisations to reframe cybersecurity as a critical business issue, emphasising the direct impact on revenue and operations.
