@@ -65,6 +65,15 @@ weekly_overview_task:
 
   agent: web_researcher
 
+cisa_kev_task:
+  description: >
+    run the cve_tool to get the KNOWN_EXPLOITS CISA Known Exploited Vulnerabilities for the last 7 days for the date {date} and review the results.
+    write up a summary of the results and provide a list of the CISA KEV for the last 7 days for the date {date}.
+  expected_output: >
+    Formatted as markdown without ```
+    A list of all the CISA KEV for the last 7 days for the date {date}.
+  agent: web_researcher 
+
 set_structured_output:
   description: >
     Set the output to be a structured output.

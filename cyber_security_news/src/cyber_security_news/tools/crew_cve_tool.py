@@ -17,7 +17,7 @@ init()
 # Define input model
 class CVERequest(BaseModel):
     severity: str  # Options: CRITICAL, HIGH, KNOWN_EXPLOITS
-    days: int = 7  # Default is the last 7 days
+    days: int = 14  # Default is the last 7 days
 
 # Define output model
 class CVEResponse(BaseModel):
@@ -28,8 +28,6 @@ class CVEResponse(BaseModel):
 
 # API Base URLs
 BASE_URLS = {
-    "CRITICAL": "https://services.nvd.nist.gov/rest/json/cves/2.0?cvssV3Severity=CRITICAL",
-    "HIGH": "https://services.nvd.nist.gov/rest/json/cves/2.0?cvssV3Severity=HIGH",
     "KNOWN_EXPLOITS": "https://services.nvd.nist.gov/rest/json/cves/2.0?hasKev"
 }
 
@@ -84,11 +82,11 @@ def fetch_cve_data(request: CVERequest) -> CVEResponse:
     )
 
 @tool
-def fetch_cve_data_tool(severity: str = "CRITICAL", days: int = 7) -> str:
+def fetch_cve_data_tool(severity: str = "KNOWN_EXPLOITS", days: int = 14) -> str:
     """Fetches recent CVE (Common Vulnerabilities and Exposures) data based on severity level and time range.
     
     Args:
-        severity: The severity level to filter CVEs (CRITICAL, HIGH, or KNOWN_EXPLOITS)
+        severity: The severity level to filter CVEs (KNOWN_EXPLOITS)
         days: Number of days to look back for CVEs
         
     Returns:

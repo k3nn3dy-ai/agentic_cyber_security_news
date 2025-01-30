@@ -1,6 +1,6 @@
 research_report:
   description: >
-    using the shell tool use 'cat' to review all gathered information from the following files: search_task.md, filter_task.md, summarise_task.md.
+    using the shell tool use 'cat' to review all gathered information from the following files: search_task.md, filter_task.md, summarise_task.md, cisa_kev_task.md.
     and generate a comprehensive report that synthesizes the cybersecurity news and trends for the 7 days leading up to {date}. 
     Ensure all sources are properly credited and information is accurately represented from the collected data.
 
@@ -11,30 +11,91 @@ research_report:
     A detailed report with key findings, trends, and insights for the cybersecurity community.
    
       # Cybersecurity Research Report for the week ending {date}
+      
       ## Executive Summary
       
-      write a executive summary of the report and its contents.
+      write a executive summary of the report and its contents, including:
+      - Key highlights and major incidents
+      - Emerging threat patterns
+      - Notable industry impacts
+      - Critical vulnerabilities discovered
+      - CISA KEV additions
 
       ## Methodology
       
-      Briefly explain the process and sources used to gather and analyze the cybersecurity news stories.
+      Briefly explain the process and sources used to gather and analyze the cybersecurity news stories, including:
+      - Data collection methods
+      - Analysis criteria
+      - Ranking methodology
+      - Time period covered
+      - CVE data sources
+
+      ## Threat Landscape Overview
+      
+      Provide a high-level analysis of:
+      - Current threat actors and their activities
+      - Emerging attack vectors
+      - Affected industries and regions
+      - Notable changes from previous weeks
+
+      ## Critical Vulnerabilities and Known Exploits
+      
+      Analysis of newly identified critical vulnerabilities:
+      - CISA KEV additions
+      - Critical severity CVEs
+      - High severity CVEs
+      - Exploitation status
+      - Affected products/systems
+      - Recommended mitigations
 
       ## Top News Stories
-      an overview of this week's top news stories
+      An overview of this week's top news stories, categorized by:
+      - Major Security Incidents
+      - Vulnerability Discoveries
+      - Industry Updates
+      - Policy and Regulation Changes
 
       ## This weeks summary overview
       this section should contain the entire content of weekly_overview_task.md, do not summarise or change the content.
 
       ## Filtered and High Ranked Stories
-      A detailed list of all the 'High' ranked stories from filter_task.md
+      A detailed list of all the 'High' ranked stories from filter_task.md, including:
+      - Impact assessment
+      - Technical details
+      - Affected systems/organizations
+      - Current status and responses
+
+      ## Emerging Trends and Patterns
+      Analysis of:
+      - Common attack patterns
+      - Industry-specific trends
+      - Geographic trends
+      - Technology-specific vulnerabilities
 
       ## Recommendations
       
-      Provide specific recommendations or best practices for mitigating risks and addressing the identified threats and trends.
+      Provide specific recommendations or best practices for:
+      - Immediate actions required
+      - Long-term security improvements
+      - Industry-specific guidance
+      - Risk mitigation strategies
+      - Security awareness topics
+      - Vulnerability management priorities
 
       ## Source Links
       
-      list all the source full path URLs from these files: search_task.md
+      list all the source full path URLs from these files: search_task.md, organized by:
+      - Primary sources
+      - Technical advisories
+      - Industry reports
+      - Official statements
+      - CVE references
 
-      
+      ## Appendix
+      - Glossary of technical terms
+      - Risk rating criteria
+      - Timeline of major events
+      - Related previous reports
+      - CVE scoring methodology
+
   agent: report_writer

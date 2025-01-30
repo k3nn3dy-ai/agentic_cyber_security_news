@@ -5,6 +5,7 @@ from datetime import datetime
 from crewai_tools import FileReadTool
 from pydantic import BaseModel
 from src.cyber_security_news.tools.google_search import GoogleNewsSearch
+from src.cyber_security_news.tools.crew_cve_tool import fetch_cve_data_tool
 
 
 class WebResearchOutput(BaseModel):
@@ -19,30 +20,6 @@ class WebResearchCrew():
 
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
-	news_sources = WebsiteSearchTool(
-					website = str ([
-				"https://www.theregister.com/security",
-				"https://thehackernews.com",
-				"https://www.bleepingcomputer.com",
-				"https://threatpost.com",
-				"https://krebsonsecurity.com",
-				"https://www.darkreading.com",
-				"https://www.csoonline.com",
-				"https://www.securityweek.com",
-				"https://www.schneier.com",
-				"https://www.helpnetsecurity.com",
-				"https://www.infosecurity-magazine.com",
-				"https://www.welivesecurity.com",
-				"https://www.cyberscoop.com",
-				"https://securityboulevard.com",
-				"https://arstechnica.com/security",
-				"https://techcrunch.com/tag/security",
-				"https://cisomag.eccouncil.org",
-				"https://securityintelligence.com",
-				"https://thecyberwire.com"
-			]),
-        description="Search for the latest cybersecurity news stories from trusted sources. only search for stories that are within the last 7 days for the date {date}."
-    )
 	file_reader_tool = FileReadTool()
 	date = datetime.now().strftime('%Y-%m-%d')
 	google_search = GoogleNewsSearch()
@@ -52,7 +29,8 @@ class WebResearchCrew():
 	def web_researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['web_researcher'],
-			tools=[GoogleNewsSearch()]
+			tools=[self.google_search, fetch_cve_data_tool],
+			verbose=True
 		)
 
 	@task
@@ -81,6 +59,13 @@ class WebResearchCrew():
 		return Task(
 			config=self.tasks_config['weekly_overview_task'],
 			output_file='weekly_overview_task.md'
+		)
+	
+	@task
+	def cisa_kev_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['cisa_kev_task'],
+			output_file='cisa_kev_task.md'
 		)
 	
 	@task

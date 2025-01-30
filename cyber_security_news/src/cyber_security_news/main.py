@@ -48,13 +48,13 @@ class CyberSecurityNewsFlow(Flow[ContentTrigger]):
 
         print("✅ Internet research completed!!! 🌐")
         self.state.filter_task = result["filter_task"]
-        print(f"🔍 Filter task: {self.state.filter_task}")
+        # print(f"🔍 Filter task: {self.state.filter_task}")
         self.state.search_task = result["search_task"]
-        print(f"🔍 Search task: {self.state.search_task}")
+        # print(f"🔍 Search task: {self.state.search_task}")
         self.state.summarise_task = result["summarise_task"]
-        print(f"🔍 Summarise task: {self.state.summarise_task}")
+        # print(f"🔍 Summarise task: {self.state.summarise_task}")
         self.state.weekly_overview_task = result["weekly_overview_task"]
-        print(f"🔍 Weekly overview task: {self.state.weekly_overview_task}")
+        # print(f"🔍 Weekly overview task: {self.state.weekly_overview_task}")
 
     @listen("Not Acceptable")
     def retry_newsroom_review(self):
@@ -71,10 +71,6 @@ class CyberSecurityNewsFlow(Flow[ContentTrigger]):
                 "date": self.state.date, 
                 "editors_feedback": self.state.editors_feedback, 
                 "newsroom_report": self.state.newsroom_report, 
-                "filter_task": self.state.filter_task, 
-                "search_task": self.state.search_task, 
-                "summarise_task": self.state.summarise_task, 
-                "weekly_overview_task": self.state.weekly_overview_task
                 })
         )
         print("✨ Newsroom review completed!!! 📋")
@@ -99,7 +95,7 @@ class CyberSecurityNewsFlow(Flow[ContentTrigger]):
             return "Acceptable"
             
         if self.state.is_acceptable:
-            print("✅ Report is of an acceptable standard! 📢")
+            # print("✅ Report is of an acceptable standard! 📢")
             return "Acceptable"
         else:
             print("⚠️ Report is not of an acceptable standard. 📢")
