@@ -1,11 +1,20 @@
 #!/usr/bin/env python
 
+import warnings
+import os
+import agentops
 from pydantic import BaseModel
 from datetime import datetime
-from crewai.flow.flow import Flow, listen, start
+from crewai.flow.flow import Flow, listen, start, or_, router
 from .crews.web_research_crew.web_research_crew import WebResearchCrew
 from .crews.newsroom_crew.newsroom_crew import NewsroomCrew
 from .crews.editor.editor import Editor
+
+# Filter out the specific warning before initializing AgentOps
+warnings.filterwarnings("ignore", message="Overriding already configured TracerProvider")
+
+agentops_key = os.getenv("AGENTOPS_KEY")
+agentops.init(agentops_key)
 
 def get_current_date():
     return datetime.now().strftime("%Y-%m-%d")
@@ -13,63 +22,92 @@ def get_current_date():
 class ContentTrigger(BaseModel):
     date: str = get_current_date()
     newsroom_report: str = ""
-    retrycount: int = 0
+    retrycount: int = 1
     is_acceptable: bool = False
     editors_feedback: str = ""
-    research_results: str = ""
+    filter_task: str = ""
+    search_task: str = ""
+    summarise_task: str = ""
+    weekly_overview_task: str = ""
+
 
 class CyberSecurityNewsFlow(Flow[ContentTrigger]):
 
     @start()
     def start_flow(self):
-        print("Cyber Security News Flow Started, please wait...")
+        print("🚀 Cyber Security News Flow Started, please wait... ⚡")
 
     @listen(start_flow)
     def carry_out_research(self):
-        print("Gathering this week's cyber security news!")
+        print("🔍 Gathering this week's cyber security news! 📰")
         result = (
             WebResearchCrew()
             .crew()
             .kickoff(inputs={"date": self.state.date})
         )
 
-        print("Internet research completed!!!", result.raw)
-        self.state.research_results = result.raw
+        print("✅ Internet research completed!!! 🌐")
+        self.state.filter_task = result["filter_task"]
+        print(f"🔍 Filter task: {self.state.filter_task}")
+        self.state.search_task = result["search_task"]
+        print(f"🔍 Search task: {self.state.search_task}")
+        self.state.summarise_task = result["summarise_task"]
+        print(f"🔍 Summarise task: {self.state.summarise_task}")
+        self.state.weekly_overview_task = result["weekly_overview_task"]
+        print(f"🔍 Weekly overview task: {self.state.weekly_overview_task}")
 
-    @listen(carry_out_research)
+    @listen("Not Acceptable")
+    def retry_newsroom_review(self):
+        print("🔄 Retrying newsroom review... 📝")
+        self.state.retrycount += 1
+
+    @listen(or_(carry_out_research, retry_newsroom_review))
     def newsroom_review(self):
-        print("Carrying out a review of this week's cyber security news!")
+        print("📝 Carrying out a review of this week's cyber security news! 📊")
         result = (
             NewsroomCrew()
             .crew()
-            .kickoff(inputs={"date": self.state.date, "research_results": self.state.research_results, "editors_feedback": self.state.editors_feedback, "newsroom_report": self.state.newsroom_report})
+            .kickoff(inputs={
+                "date": self.state.date, 
+                "editors_feedback": self.state.editors_feedback, 
+                "newsroom_report": self.state.newsroom_report, 
+                "filter_task": self.state.filter_task, 
+                "search_task": self.state.search_task, 
+                "summarise_task": self.state.summarise_task, 
+                "weekly_overview_task": self.state.weekly_overview_task
+                })
         )
-        print("Newsroom review completed!!!", result.raw)
+        print("✨ Newsroom review completed!!! 📋")
         self.state.newsroom_report = result.raw
-        self.state.retrycount += 1
-        
 
-    @listen(newsroom_review)
+    @router(newsroom_review)
     def editor_review(self):
-        print("Carrying out a review of this week's cyber security news!")
+        print("👀 Editor reviewing this week's cyber security news! ✍️")
         result = (
             Editor()
             .crew()
             .kickoff(inputs={"date": self.state.date, "newsroom_report": self.state.newsroom_report})
         )
-        print("Editor review completed!!!", result.raw)
         self.state.editors_feedback = result["editor_feedback"]
         self.state.is_acceptable = result["is_acceptable"]
-        print(f"Is the report of an acceptable standard? {self.state.is_acceptable}")
-        print(f"Editor feedback: {self.state.editors_feedback}")
+        print(f"🎯 Is the report of an acceptable standard? {self.state.is_acceptable}")
+        print(f"💬 Editor feedback: {self.state.editors_feedback}")
         
-        # If not acceptable and under 3 retries, trigger newsroom review again
-        if not self.state.is_acceptable and self.state.retrycount < 3:
-            print(f"Report needs revision. Attempt {self.state.retrycount + 1}/3")
-            self.newsroom_review()
-        elif not self.state.is_acceptable:
-            print("Maximum retries reached. Publishing report as is.")
-
+        # Auto-accept if retry count is 3 or more
+        if self.state.retrycount >= 3:
+            print("🔄 Maximum retry attempts reached (3) - automatically accepting report")
+            return "Acceptable"
+            
+        if self.state.is_acceptable:
+            print("✅ Report is of an acceptable standard! 📢")
+            return "Acceptable"
+        else:
+            print("⚠️ Report is not of an acceptable standard. 📢")
+            return "Not Acceptable"
+        
+    @listen("Acceptable")
+    def publish_report(self):
+        print("✅ Report is of an acceptable standard! 📢")
 
 def kickoff():
     cyber_security_flow = CyberSecurityNewsFlow()

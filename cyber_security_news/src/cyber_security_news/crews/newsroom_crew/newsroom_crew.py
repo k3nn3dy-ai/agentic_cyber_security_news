@@ -17,7 +17,7 @@ class NewsroomCrew():
 		return Agent(
 			config=self.agents_config['report_writer'],
 			tools=[self.file_reader_tool],
-			verbose=True,
+			verbose=False,
 			respect_context_window=True,
 			max_iter=1,
 			max_rpm=50,

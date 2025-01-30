@@ -1,10 +1,10 @@
 research_report:
   description: >
-    Review all gathered information from {research_results} and previous tasks [search_tasks.md, filter_task.md, summarise_task.md, and trend_analysis_task.md]
+    using the shell tool use 'cat' to review all gathered information from the following files: search_task.md, filter_task.md, summarise_task.md.
     and generate a comprehensive report that synthesizes the cybersecurity news and trends for the 7 days leading up to {date}. 
     Ensure all sources are properly credited and information is accurately represented from the collected data.
 
-    if the editor provides feedback, to an existing {newsroom_report}, ensure the report is updated and amended to reflect the feedback.
+    if the editor provides feedback, to an existing report, ensure the report is updated and amended to reflect the feedback.
     {editors_feedback}
   expected_output: >
     Formatted as markdown without ```
@@ -23,13 +23,10 @@ research_report:
       an overview of this week's top news stories
 
       ## This weeks summary overview
-      this section should contain the entire content of [summarise_task.md], do not summarise or change the content.
+      this section should contain the entire content of weekly_overview_task.md, do not summarise or change the content.
 
       ## Filtered and High Ranked Stories
-      A detailed list of all the 'High' ranked stories from [filter_task.md]
-
-      ## Emerging Trends and Patterns
-      this section should contain the entire content of [trend_analysis_task.md], do not summarise or change the content.
+      A detailed list of all the 'High' ranked stories from filter_task.md
 
       ## Recommendations
       
@@ -37,7 +34,7 @@ research_report:
 
       ## Source Links
       
-      list all the source full path URLs from these files: [search_task.md]
+      list all the source full path URLs from these files: search_task.md
 
       
   agent: report_writer

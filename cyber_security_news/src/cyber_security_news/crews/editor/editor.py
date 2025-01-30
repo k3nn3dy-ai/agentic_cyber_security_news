@@ -20,7 +20,7 @@ class Editor():
 		return Agent(
 			config=self.agents_config['newsroom_editor'],
 			tools=[self.file_reader_tool],
-			verbose=True
+			verbose=False
 		)
 
 	@task

@@ -17,8 +17,9 @@ search_task:
       Error Handling: Retry failed requests up to 3 times with exponential backoff.
     
   expected_output: >
-     Structured output:
-      search_task: [A list of all the cybersecurity news stories for the last 7 days from the {date} with titles, source links, and short summaries.]
+    Formatted as markdown without ```
+    A list of all the cybersecurity news stories for the last 7 days from the {date} with titles, source links (full path), and short but detailed summaries.
+
   agent: web_researcher
 
 filter_task:
@@ -30,58 +31,49 @@ filter_task:
     - Public relevance score (1-10)
     - Technical complexity (Basic/Intermediate/Advanced)
   expected_output: >
-    Structured output
-
-    filter_task: [A list of at least 15 news stories, sorted by importance. Each entry should include:
+    Formatted as markdown without ```
+    A list of at least 15 news stories, sorted by importance. Each entry should include:
     - Title
     - Ranking
     - Short description (paragraph)
     - Source URL
-    - Author (if known)]
-
-    if the author is not known, use the source URL as the author.]
+    - Author (if known)
+    if the author is not known, use the source URL as the author.
   agent: web_researcher
 
 summarise_task:
   description: >
-    Summarise the key details from each of the ranked filtered stories.
+    Summarise the key details from each of the ranked filtered stories in filter_task.
     Extract critical information, such as what happened, who was impacted, and why it matters.
   expected_output: >
-    Structured output
-    summarise_task: [A summary document with concise key points for each story. Each story should include:
+    Formatted as markdown without ```
+    A summary document with concise key points for each story. Each story should include:
     - Headline
     - Key facts (What, Who, Why, and Impact)
     - Source URL
-    - Author (if known)]
-    
+    - Author (if known)
     if the author is not known, use the source URL as the author.
 
   agent: web_researcher
 
-trend_analysis_task:
-  description: >
-    Identify emerging patterns or trends across the cybersecurity news stories.
-    Highlight any recurring threats, new vulnerabilities, or growing trends that should be noted.
-    
-    Analysis Requirements:
-    - Minimum of 3 distinct trends identified
-    - Statistical backing for trend identification
-    - Compare with previous week's trends
-    - Identify geographical impact patterns
-
-  expected_output: >
-    Structured output
-    trend_analysis_task: [A report highlighting:
-    - Key trends
-    - Specific recurring topics or patterns
-    - Notable insights for the cybersecurity audience
-    - a table of the top 10 trends by news article.]
-  agent: web_researcher
-
 weekly_overview_task:
   description: >
-    Create a weekly overview of the cybersecurity news stories.
+    Create a weekly overview of the cybersecurity news stories in filter_task, summarise_task, and trend_analysis_task.
   expected_output: >
-    Structured output
-    weekly_overview_task: [A summary of the cybersecurity news stories for the week.]
+    Formatted as markdown without ```
+    A summary of the cybersecurity news stories for the week in filter_task, summarise_task, and trend_analysis_task .
+
+  agent: web_researcher
+
+set_structured_output:
+  description: >
+    Set the output to be a structured output.
+  expected_output: >
+    Formatted as markdown without ```
+
+    search_task: str = ""
+    filter_task: str = ""
+    summarise_task: str = ""
+    weekly_overview_task: str = ""
+    
   agent: web_researcher

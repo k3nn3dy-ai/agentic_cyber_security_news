@@ -5,8 +5,10 @@ description = "cyber_security_news using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<=3.13"
 dependencies = [
+    "agentops>=0.3.26",
     "colorama>=0.4.6",
     "crewai[tools]>=0.86.0,<1.0.0",
+    "langchain-community>=0.3.12",
     "matplotlib>=3.10.0",
 ]
 

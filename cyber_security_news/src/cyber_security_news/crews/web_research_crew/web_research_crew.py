@@ -4,14 +4,14 @@ from crewai.project import CrewBase, agent, crew, task
 from datetime import datetime
 from crewai_tools import FileReadTool
 from pydantic import BaseModel
+from src.cyber_security_news.tools.google_search import GoogleNewsSearch
+
 
 class WebResearchOutput(BaseModel):
     search_task: str = ""
     filter_task: str = ""
     summarise_task: str = ""
-    trend_analysis_task: str = ""
     weekly_overview_task: str = ""
-
 
 @CrewBase
 class WebResearchCrew():
@@ -20,7 +20,7 @@ class WebResearchCrew():
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 	news_sources = WebsiteSearchTool(
-					website = str([
+					website = str ([
 				"https://www.theregister.com/security",
 				"https://thehackernews.com",
 				"https://www.bleepingcomputer.com",
@@ -34,7 +34,6 @@ class WebResearchCrew():
 				"https://www.infosecurity-magazine.com",
 				"https://www.welivesecurity.com",
 				"https://www.cyberscoop.com",
-				"https://www.scmagazine.com",
 				"https://securityboulevard.com",
 				"https://arstechnica.com/security",
 				"https://techcrunch.com/tag/security",
@@ -46,19 +45,21 @@ class WebResearchCrew():
     )
 	file_reader_tool = FileReadTool()
 	date = datetime.now().strftime('%Y-%m-%d')
+	google_search = GoogleNewsSearch()
+	results = google_search._run(date)
 
 	@agent
 	def web_researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['web_researcher'],
-			tools=[self.news_sources]
+			tools=[GoogleNewsSearch()]
 		)
 
 	@task
 	def search_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['search_task'],
-			output_file='search_task.md',
+			output_file='search_task.md'
 		)
 
 	@task
@@ -74,21 +75,20 @@ class WebResearchCrew():
 			config=self.tasks_config['summarise_task'],
 			output_file='summarise_task.md'
 		)
-
-	@task
-	def trend_analysis_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['trend_analysis_task'],
-			output_file='trend_analysis_task.md'
-		)
 	
 	@task
 	def weekly_overview_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['weekly_overview_task'],
-			output_pydantic=WebResearchOutput
+			output_file='weekly_overview_task.md'
 		)
 	
+	@task
+	def set_structured_output(self) -> Task:
+		return Task(
+			config=self.tasks_config['set_structured_output'],
+			output_pydantic=WebResearchOutput
+		)
 	@crew
 	def crew(self) -> Crew:
 		"""Creates the WebResearchCrew crew"""
@@ -97,6 +97,6 @@ class WebResearchCrew():
 			agents=self.agents,
 			tasks=self.tasks,
 			process=Process.sequential,
-			verbose=True,
+			verbose=False,
 			output_log_file='web_research.log',
 		)
