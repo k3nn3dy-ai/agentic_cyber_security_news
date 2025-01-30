@@ -77,6 +77,78 @@ You can get a free serper api key by signing up here. https://serper.dev/
 
 AS IS it is currently set up to run with anthropic models (Haiku and Claude Sonnet) but this can be amended to suit your preference. please find the llm guide for crewai here. https://docs.crewai.com/concepts/llms#setting-up-your-llm
 
+4. Install cyber_security_news
+```
+crewai install
+```
+### Usage
+
+Run the cyber news tool by using the following command:
+```
+crewai flow kickoff
+```
+
+
+## 🔧 Architecture
+
+The system operates using three specialized crews:
+
+1. **Web Research Crew** 🌐
+   - Gathers news from trusted sources
+   - Filters and ranks stories
+   - Generates initial summaries
+
+2. **Newsroom Crew** 📰
+   - Synthesizes research findings
+   - Creates comprehensive reports
+   - Ensures proper source attribution
+
+3. **Editorial Crew** ✍️
+   - Reviews technical accuracy
+   - Verifies source credibility
+   - Provides quality assurance
+
+## 📊 Output Example
+
+The system generates a comprehensive cybersecurity report including:
+
+- Executive Summary
+- Methodology Overview
+- Top News Stories
+- Weekly Summary
+- High-Priority Stories
+- Strategic Recommendations
+- Source Attribution
+
+## 🛠️ Tools and Technologies
+
+- CrewAI Framework
+- LangChain Community Tools
+- Google Serper API
+- NVD CVE API Integration
+- Matplotlib Visualization
+- Pydantic Data Validation
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 🙏 Acknowledgments
+
+- CrewAI Team for the excellent framework
+- National Vulnerability Database (NVD) for CVE data
+- All contributors and security researchers
+
+---
+
+<p align="center">
+Made with ❤️ for the cybersecurity community
+</p>
+
 
 
 
