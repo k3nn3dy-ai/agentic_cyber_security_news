@@ -87,7 +87,17 @@ Run the cyber news tool by using the following command:
 ```
 crewai flow kickoff
 ```
-
+### To use the Docker setup:
+```
+docker build -t cybersec-news-ai .
+```
+```
+docker run -e ANTHROPIC_API_KEY="your_key" \
+          -e SERPER_API_KEY="your_key" \
+          -v $(pwd)/reports:/app/reports \
+          -v $(pwd)/logs:/app/logs \
+          cybersec-news-ai
+```
 
 ## 🔧 Architecture
 
@@ -108,9 +118,11 @@ The system operates using three specialized crews:
    - Verifies source credibility
    - Provides quality assurance
 
+<img width="341" alt="image" src="https://github.com/user-attachments/assets/3b1254eb-9dc3-4503-9410-8f4340e03712" />
+
 ## 📊 Output Example
 
-The system generates a comprehensive cybersecurity report including:
+The system generates a comprehensive cybersecurity report including: `report in folder`
 
 - Executive Summary
 - Methodology Overview
