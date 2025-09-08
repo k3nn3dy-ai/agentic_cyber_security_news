@@ -7,14 +7,18 @@ requires-python = ">=3.10,<=3.13"
 dependencies = [
     "agentops>=0.3.26",
     "colorama>=0.4.6",
-    "crewai[tools]>=0.86.0,<1.0.0",
+    "crewai[tools]>=0.177.0",
     "langchain-community>=0.3.12",
     "matplotlib>=3.10.0",
+    "streamlit>=1.32.0",
+    "openai>=1.13.3",
+    "pandas>=2.0.0",
 ]
 
 [project.scripts]
 kickoff = "cyber_security_news.main:kickoff"
 plot = "cyber_security_news.main:plot"
+streamlit-app = "cyber_security_news.main:run_streamlit"
 
 [build-system]
 requires = ["hatchling"]

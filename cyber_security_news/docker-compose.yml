@@ -1,0 +1,51 @@
+services:
+  # Streamlit Web Interface (Default)
+  cybersec-web:
+    build: .
+    container_name: cybersec-news-web
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - SERPER_API_KEY=${SERPER_API_KEY}
+      - AGENTOPS_KEY=${AGENTOPS_KEY:-}
+    volumes:
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+      - ./db:/app/db  # For ChromaDB persistence
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # CLI Service (for batch processing)
+  cybersec-cli:
+    build: .
+    container_name: cybersec-news-cli
+    env_file:
+      - .env
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - SERPER_API_KEY=${SERPER_API_KEY}
+      - AGENTOPS_KEY=${AGENTOPS_KEY:-}
+    volumes:
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+      - ./db:/app/db
+    command: ["python", "-m", "cyber_security_news.main", "kickoff"]
+    profiles:
+      - cli  # Only run when explicitly called
+
+volumes:
+  reports:
+  logs:
+  chroma_db:
+
+networks:
+  default:
+    name: cybersec-network

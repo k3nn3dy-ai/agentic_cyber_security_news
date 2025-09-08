@@ -1,5 +1,5 @@
 from langchain_community.utilities import GoogleSerperAPIWrapper
-from crewai_tools import BaseTool
+from crewai.tools import BaseTool
 from pydantic import Field, PrivateAttr
 import os
 from typing import List

@@ -1,4 +1,4 @@
-from crewai_tools import BaseTool
+from crewai.tools import BaseTool
 from langchain_community.tools import ShellTool
 
 class CustomShellTool(BaseTool):
